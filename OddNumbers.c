@@ -1,4 +1,3 @@
-/* Sample code to read in test cases: */
 #include <stdio.h>
 
 int main(int argc, const char * argv[]) 
