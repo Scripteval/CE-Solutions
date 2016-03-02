@@ -1,3 +1,20 @@
+/*
+Given two integers N and M, calculate N Mod M (without using any inbuilt
+modulus operator).
+Input sample:
+
+Your program should accept as its first argument a path to a filename. Each
+line in this file contains two comma separated positive integers. E.g.
+
+    20,6
+    2,3
+
+You may assume M will never be zero.
+Output sample:
+
+Print out the value of N Mod M 
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,6 +35,7 @@ int main(int argc, const char * argv[])
         printf("%ld\n", mod(x,n));
 
     }
+    fclose(file);
     return 0;
 }
 
