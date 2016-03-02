@@ -29,10 +29,13 @@ Constraints:
     "Y" is in range [1, 20]
     "N" is in range [21, 100]
 */
-    
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
+void fizzbuzz(int fizz, int buzz, int upper_bound);
+
 int main(int argc, const char * argv[]) {
     FILE *file = fopen(argv[1], "r");
     char line[1024];
@@ -46,23 +49,26 @@ int main(int argc, const char * argv[]) {
     		token = strtok(NULL, " ");
     		++i;
     	}
-
-    	//Fizzbuzz
-    	for (i = 1; i <= numbers[2]; ++i) {
-    		char fizzbuzz[100];
-    		fizzbuzz[0] = '\0';
-    		if (i % numbers[0] == 0)
-    			strcat(fizzbuzz, "F");
-    		if (i % numbers[1] == 0)
-    			strcat(fizzbuzz, "B");
-    		if (fizzbuzz[0] == '\0')
-    			sprintf(fizzbuzz, "%d", i);
-    		char *space = (i == numbers[2]) ? "" : " ";
-    		strcat(fizzbuzz, space);
-    		printf("%s", fizzbuzz);
-    	}
+        fizzbuzz(numbers[0], numbers[1], numbers[2]);
     	printf("\n");
     }
     fclose(file);
     return 0;
+}
+
+void fizzbuzz(int fizz, int buzz, int upper_bound)
+{
+    for (int i = 1; i <= upper_bound; ++i) {
+        char fizzbuzz[100];
+        fizzbuzz[0] = '\0';
+        if (i % fizz == 0)
+            strcat(fizzbuzz, "F");
+        if (i % buzz == 0)
+            strcat(fizzbuzz, "B");
+        if (fizzbuzz[0] == '\0')
+            sprintf(fizzbuzz, "%d", i);
+        char *space = (i == upper_bound) ? "" : " ";
+        strcat(fizzbuzz, space);
+        printf("%s", fizzbuzz);
+    }
 }

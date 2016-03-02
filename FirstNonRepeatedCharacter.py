@@ -19,7 +19,6 @@ For example:
 
 import sys
 test_cases = open(sys.argv[1], 'r')
-dict = {}
 for test in test_cases:
     #create dictionary with characters as the keys and integers as the values	
     dict = {key: 0 for key in test}
